@@ -32,7 +32,7 @@ html {
 
 .footer {
   grid-area: footer;
-  background-color: red;
+  background-color: darkred;
 }
 
 .search {
