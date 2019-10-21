@@ -22,6 +22,7 @@ body {
   grid-area: sidebar;
   background-color:rgb(44, 44, 46);
   color: white;
+  border-right: black;
 }
 
 .header {
@@ -57,16 +58,12 @@ body {
 }
 
 .sidebar .listen {
-  background-color: grey;
-  border-radius: 20px;
-  font-size: 90%;
-  text-align: center;
-  padding: 15px 5px 20px 5px;
+  font-size: 80%;
+  padding: 0 5px 20px 5px;
 }
 
 .sidebar .listen .items {
-  border-bottom: 1px solid #a2a9b1;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 5px 5px;
 }
 
 .sidebar h2 {
