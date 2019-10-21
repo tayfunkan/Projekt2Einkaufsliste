@@ -20,7 +20,7 @@ body {
 
 .sidebar {
   grid-area: sidebar;
-  background-color:rgb(95, 93, 93);
+  background-color:rgb(44, 44, 46);
   color: white;
 }
 
@@ -31,7 +31,7 @@ body {
 
 .content {
   grid-area: content;
-  background-color: rgb(48, 46, 46);
+  background-color: rgb(28, 28, 30);
   color: white;
 }
 
@@ -69,23 +69,25 @@ body {
   padding: 5px 0 5px 0;
 }
 
-h2 {
+.sidebar h2 {
+  font-size: 80%;
+  color: rgba(160, 143, 143, 0.877);
   margin: 10px 0 10px 0px;
   
 }
 
 .content .listeneinträge {
   margin-top: 20px;
-  background-image: linear-gradient( to right, red, pink); 
+  background-image: linear-gradient( to right, rgba(219, 37, 92, 0.747), rgb(230, 148, 101)); 
   border-radius: 30px;
   padding: 10px 10px 10px 10px;
 }
 
 .content .contentinhalt{
-  margin: 0 20px 20px 20px;
+  margin: 0 55px 55px 55px;
 }
 
-*
+/* *
 {
     outline: none;
 }
@@ -250,4 +252,4 @@ button span:before, button span:after
     right: -6px;
     width: 40px;
     background-color: #fff;
-}
+} */
