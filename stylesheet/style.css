@@ -22,7 +22,7 @@ body {
   grid-area: sidebar;
   background-color:rgb(44, 44, 46);
   color: white;
-  border-right: black;
+  border-right: 1px solid black;
 }
 
 .header {
@@ -64,6 +64,9 @@ body {
 
 .sidebar .listen .items {
   padding: 5px 0 5px 5px;
+  background-image: linear-gradient(transparent,transparent),url(/w/skins/Vector/images/user-avatar.svg?b7f58);
+  background-repeat: no-repeat;
+
 }
 
 .sidebar h2 {
@@ -72,6 +75,8 @@ body {
   margin: 10px 0 10px 0px;
   
 }
+
+
 
 .content .listeneinträge {
   margin-top: 20px;
