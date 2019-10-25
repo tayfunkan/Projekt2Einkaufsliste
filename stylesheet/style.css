@@ -11,11 +11,10 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 15% 85%;
-    grid-template-rows: 100%;
+    grid-template-rows: 95% 5%;
     grid-template-areas:
         "sidebar content"
-        "sidebar content"
-        "sidebar content"
+        "footer1 footer2"
 }
 
 .sidebar {
@@ -25,9 +24,8 @@ body {
   border-right: 1px solid black;
 }
 
-.header {
-  grid-area: header;
-  text-align: center;
+li{
+  list-style: none;
 }
 
 .content {
@@ -36,9 +34,20 @@ body {
   color: white;
 }
 
-.footer {
-  grid-area: footer;
-  background-color: darkred;
+.footer1 {
+  grid-area: footer1;
+  background-color: rgb(44, 44, 46);
+  border-right: 1px solid black;
+  color: white;
+  text-align: center;
+}
+
+
+.footer2 {
+  grid-area: footer2;
+  background-color: rgb(28, 28, 30);
+  color: white;
+  text-align: center;
 }
 
 .search {
@@ -63,7 +72,7 @@ body {
 }
 
 .sidebar .listen .items {
-  padding: 5px 0 5px 5px;
+  padding: 0px 0 0px 5px;
   background-image: linear-gradient(transparent,transparent),url(/w/skins/Vector/images/user-avatar.svg?b7f58);
   background-repeat: no-repeat;
 
@@ -76,11 +85,13 @@ body {
   
 }
 
-
+.content h1{
+  margin: 12px 0 0px 0;
+}
 
 .content .listeneinträge {
   margin-top: 20px;
-  background-image: linear-gradient( to right, rgba(219, 37, 92, 0.747), rgb(230, 148, 101)); 
+  background-image: linear-gradient( to right, #D95A41, #FFDC7C); 
   border-radius: 30px;
   padding: 10px 10px 10px 10px;
 }
@@ -88,6 +99,65 @@ body {
 .content .contentinhalt{
   margin: 0 55px 55px 55px;
 }
+
+.plus-button {
+  border: 1px solid transparent;
+  background-color: #FFDC7C;
+	font-size: 16px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+  position: relative;
+  
+}
+
+.sidebarnewlist {
+  margin-bottom: 10px;
+}
+
+.contentnewitem {
+  margin-bottom: 10px;
+}
+
+.footer1 a{
+  margin-bottom:2px;
+}
+
+.plus-button--small {
+	font-size: 9px;
+}
+button {
+  color: white;
+} 
+
+.content .contentinhalt .listeneinträge .deleteButton {
+  background: transparent;
+  border: 2px solid red;
+  border-radius: 2em;
+  color: red;
+  display: inline-block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 2px;
+  margin: 0 0 8px;
+  padding: 0;
+  text-align: center;
+  width: 20px;
+  float: right;
+  font-weight: bold;
+}
+
+/* FONTAWESOME BUTTON */
+.fas {
+  float: right;
+
+}
+}
+
+
+
+
+
 
 /* *
 {
