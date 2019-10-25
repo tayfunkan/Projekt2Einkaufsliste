@@ -42,3 +42,14 @@ function clearContent()
 {
     document.getElementById("container").removeChild();
 }
+
+// function myFunction() {
+//     var x = document.getElementById("myText").value;
+//     document.getElementById("demo").innerHTML = x;
+//   }
+
+// function myFunction() {
+//     var node = document.createElement("li");
+//     li.textContent = "Wasser";
+//     document.getElementById("listeintrag").appendChild(node);
+//   }
