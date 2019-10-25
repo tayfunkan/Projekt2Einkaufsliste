@@ -148,12 +148,19 @@ button {
 }
 
 /* FONTAWESOME BUTTON */
-.fas {
+.listeneinträge .fas {
   float: right;
   padding: 1px 25px 1px 1px;
+}
 
+.footer1 {
+  color: #D95A41;
 }
+
+.footer2 {
+  color: #FFDC7C;
 }
+
 
 
 
