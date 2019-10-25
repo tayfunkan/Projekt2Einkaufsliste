@@ -150,6 +150,7 @@ button {
 /* FONTAWESOME BUTTON */
 .fas {
   float: right;
+  padding: 1px 25px 1px 1px;
 
 }
 }
