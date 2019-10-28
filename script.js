@@ -42,6 +42,17 @@ function clearContent()
 {
     document.getElementById("container").removeChild();
 }
+function newListItem ()
+      {
+          var listenEintrag = document.createElement("li");
+          listenEintrag.textContent = "Hallo Tayfun";
+          listenEintrag.className = "listeneinträge"
+          document.getElementById("listeintrag").appendChild(listenEintrag);
+      }
+
+
+
+
 
 // function myFunction() {
 //     var x = document.getElementById("myText").value;
