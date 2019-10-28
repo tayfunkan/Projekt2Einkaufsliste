@@ -1,3 +1,50 @@
+///////////////////Variablen für Liste hinzufügen//////////////////////////////////
+var startNeueEinkaufsListe = document.getElementById("neueEinkaufsListe"),
+    dialogNeueEinkaufsListe = document.getElementById("dialogNeueEinkaufsListe"),
+    listeHinzufügen = document.getElementById("listeHinzufügen"),
+    listeAbbruch = document.getElementById("listeAbbruch");
+startNeueEinkaufsListe.addEventListener('click', dialogNeueListe);
+listeHinzufügen.addEventListener('click', listeHinzugefügt);
+listeAbbruch.addEventListener('click', listeAbgebrochen)
+
+///////////////Seitenfunktionen////////////////////////////////////////////////
+
+function dialogNeueListe()
+{
+    dialogNeueEinkaufsListe.showModal();
+}
+function listeHinzugefügt()
+{
+    var listID = document.getElementById("neueListenID").value;
+    listeAnheften(listID);
+    dialogNeueEinkaufsListe.close();
+}
+function listeAbgebrochen ()
+{
+    dialogNeueEinkaufsListe.close();
+}
+function listeAnheften(listID)
+{
+    try
+    {
+        var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listID;
+
+        fetch(apiUrl, {Method: "GET"})
+        .then(response => response.json())
+        .then(listeAnzeigen)
+    }
+    catch
+    {
+        console.log("Liste konnte nicht gefunden werden.");
+    }
+}
+function listeAnzeigen(liste)
+{
+    var nameListe = document.createElement("li");
+    nameListe.textContent = liste.name;
+    document.getElementById("alleEinkaufsListen").appendChild(nameListe)
+}
+
 function clickGetListID ()
 {
     var alleListen = document.getElementsByName("listen")
@@ -42,10 +89,10 @@ function clearContent()
 {
     document.getElementById("container").removeChild();
 }
-function newListItem ()
+function newListItem (listenEintrag)
       {
           var listenEintrag = document.createElement("li");
-          listenEintrag.textContent = "Hallo Tayfun";
+          listenEintrag.textContent = listenEintrag;
           listenEintrag.className = "listeneinträge"
           document.getElementById("listeintrag").appendChild(listenEintrag);
       }

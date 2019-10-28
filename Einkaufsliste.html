@@ -82,10 +82,10 @@
             </a>
           </div>
           <h2>
-          Listen:
+            Listen:
           </h2>
           <div class="listen">
-            <ul class="items">
+            <ul class="items" id="alleEinkaufsListen">
               <li>
                 <i class="fas fa-dot-circle"></i>
                  Einkaufsliste
@@ -113,9 +113,18 @@
               + 
             </button> -->
             <i class="fas fa-plus-circle"></i>
-            <a>
+            <a id="neueEinkaufsListe">
               New List
             </a>
+            <dialog id="dialogNeueEinkaufsListe">
+              <h2>Liste Hinzufügen</h2>
+              <form action="#" method="POST">
+                <label for="List ID">Bitte geben Sie die Listen ID ein</label>
+                <input type="text" id="neueListenID">
+              </form>
+              <button id="listeHinzufügen">Hinzufügen</button>
+              <button id="listeAbbruch">Abbrechen</button>
+            </dialog>
           </div>
         
 
