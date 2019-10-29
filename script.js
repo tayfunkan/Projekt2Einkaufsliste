@@ -42,23 +42,63 @@ function listeAnzeigen(liste)
 {
     var nameListe = document.createElement("li");
     nameListe.textContent = liste.name;
-    document.getElementById("alleEinkaufsListen").appendChild(nameListe)
+    nameListe.id = liste._id;
+    nameListe.className = "listItems";
+    document.getElementById("alleEinkaufsListen").appendChild(nameListe);
+
+    listeNeuHinterlegen();
 }
 
-function clickGetListID ()
+////////////////////////////Neues Item hinzufügen ///////////////////////////////
+var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener('click', neuesItemHinzufügen);
+
+function neuesItemHinzufügen ()
 {
-    var alleListen = document.getElementsByName("listen")
-
-    Array.from(alleListen).forEach(listen => {
-        listen.addEventListener("click"), event => {
-            updateListe(event.target.getAttribute("id"))
-        }
-    })
+    var listId = aktiveListe(); 
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items"; 
+    var item = document.getElementById("inputNeuesItem").value;
+    fetch(apiUrl, 
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: item })
+    }).then(res => res.json())
+    .then(json => console.log(json));
+    document.getElementById("inputNeuesItem").clearContent;
+    updateListe(listId);
 }
+
+function aktiveListe()
+{
+    var idObjekt = document.getElementsByClassName("inhaltÜberschrift");
+    var id = "5db8add3393ca000175725fd";
+    console.log(id);
+    return id;
+}
+
+////////////////////Liste mit Items neu laden lassen////////////////////////////////////////////
+
+
+function listeNeuHinterlegen()
+{
+    var alleListen = document.getElementsByClassName("listItems");
+
+    Array.from(alleListen).forEach(listen => 
+        {
+            listen.addEventListener("click", event => 
+            {
+                updateListe(event.target.getAttribute("id"))
+            }
+        )})
+}
+        
+
 function updateListe(id)
 {
-    var listId = this.id;
-    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/item";
+    var listId = id;
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId;
 
     fetch(apiUrl, {Method: "GET"})
         .then(response => response.json())
@@ -71,29 +111,32 @@ function showList (liste)
     
     var heading = document.createElement("h1");
     heading.textContent = liste.name;
+    heading.id = liste._id;
+    heading.className = "inhaltÜberschrift";
 
-    document.getElementByClassName("contentinhalt").appendChild(heading);
+    document.getElementById("inhaltDerSeite").appendChild(heading);
 
     var ul = document.createElement("ul");
 
-    liste.items.forEachU(item => {
+    liste.items.forEach(item => {
         var listItem = document.createElement("li");
         listItem.textContent = item.name;
+        listItem.className = "listeneinträge";
 
         ul.appendChild(listItem);
     });
 
-    document.getElementByClassName("contentinhalt").appendChild(ul);
+    document.getElementById("inhaltDerSeite").appendChild(ul);
 }
 function clearContent()
 {
-    document.getElementById("container").removeChild();
+    document.getElementById("inhaltDerSeite").innerHTML="";
 }
 function newListItem (listenEintrag)
       {
           var listenEintrag = document.createElement("li");
           listenEintrag.textContent = listenEintrag;
-          listenEintrag.className = "listeneinträge"
+          listenEintrag.className = "listeneinträge";
           document.getElementById("listeintrag").appendChild(listenEintrag);
       }
 
