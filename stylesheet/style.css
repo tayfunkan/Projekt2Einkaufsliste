@@ -10,9 +10,10 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 15% 85%;
-    grid-template-rows: 95% 5%;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 40px 1fr 35px;
     grid-template-areas:
+        "header  header"
         "sidebar content"
         "footer1 footer2"
 }
@@ -23,13 +24,19 @@ body {
   color: white;
   border-right: 1px solid black;
 }
+
 ul {
   padding-inline-start: 0px;
 }
+
 li{
   list-style: none;
 }
 
+.header {
+  grid-area: header;
+  background-color: red;
+}
 .content {
   grid-area: content;
   background-color: rgb(28, 28, 30);
@@ -135,10 +142,16 @@ li{
 	font-size: 9px;
 }
 button {
-  color: white;
+  border: none;
+  background: transparent;
+  color: #D95A41;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 100%;
+  cursor: pointer;
 } 
 
-.content .contentinhalt .listeneinträge .deleteButton {
+/* .content .contentinhalt .listeneinträge .deleteButton {
   background: transparent;
   border: 2px solid red;
   border-radius: 2em;
@@ -153,6 +166,18 @@ button {
   width: 20px;
   float: right;
   font-weight: bold;
+} */
+
+.content .contentinhalt #inputNeuesItem {
+  margin-top: 20px;
+  background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145)); 
+  border-radius: 30px;
+  border: none;
+  width: 500px;
+  padding: 10px 10px 10px 10px;
+  color: white;
+ 
+  font-size: 100%;
 }
 
 /* FONTAWESOME BUTTON */
@@ -162,15 +187,48 @@ button {
 }
 
 .footer1 {
+  
   color: #D95A41;
 }
 
 .footer2 {
+  
   color: rgb(248, 163, 145);
 }
 
+/* Dialogfeld */
+.footer1 #dialogNeueEinkaufsListe {
+  background: rgb(44, 44, 46);
+  border: 0.5px solid white;
+  color: white;
 
+  
+}
 
+.footer1 #dialogNeueEinkaufsListe .dialogheader {
+  
+  
+
+}
+
+.footer1 #dialogNeueEinkaufsListe .dialogheader h2{
+  
+
+}
+
+.footer1 #dialogNeueEinkaufsListe .dialogcontent button {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.footer1 #dialogNeueEinkaufsListe .dialogcontent #neueListenID {
+  margin-top: 20px;
+  background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145)); 
+  border-radius: 30px;
+  border: none;
+  width: 250px;
+  padding: 10px 10px 10px 10px;
+}
 
 
 

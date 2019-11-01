@@ -12,34 +12,27 @@
 
     <div class="box">
 
-      
+      <!-- Header -->
+      <div class="header">
+
+      </div>
 
       <!-- Content -->
       <div class="content">
-        <input type="text" id="inputNeuesItem">
-        <button id="fügeNeuesItemHinzu">Hinzufügen</button>
+       
         <div class="contentinhalt" id="inhaltDerSeite">
           <h1>
             Überschrift
           </h1>
-          <!-- <div class=search> 
-            <a>
-              Search
+          <input type="text" id="inputNeuesItem">
+          
+          <button style="cursor: pointer" id="fügeNeuesItemHinzu">
+            <i class="fas fa-plus-circle"></i>
+            <a >
+             Hinzufügen
             </a>
-          </div> -->
-          <!-- <div id="cover">
-              <form method="get" action="">
-                  <div class="tb">
-                    <div class="td"><input type="text" placeholder="Search" required></div>
-                    <div class="td" id="s-cover">
-                      <button type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-          </div> -->
+          </button>
+          
           <div>
             <ul id="listeintrag">  
               <li  class="listeneinträge">
@@ -77,18 +70,14 @@
       <!-- Sidebar -->
       <div class="sidebar">
         <div id="sidebarinhalt">
-          <div class=search> 
-            <a>
-              Search
-            </a>
-          </div>
+          
           <h2>
             Listen:
           </h2>
           <div class="listen">
             <ul class="items" id="alleEinkaufsListen">
               <li>
-                <i class="fas fa-dot-circle"></i>
+                <i class="far fa-circle"></i>
                  Einkaufsliste
               </li>
 
@@ -113,7 +102,7 @@
             <!-- <button class="plus-button plus-button--small">
               + 
             </button> -->
-            <button style="cursor: pointer">
+            <button>
               <i class="fas fa-plus-circle"></i>
               <a id="neueEinkaufsListe">
                 New List
@@ -121,13 +110,30 @@
             </button>
             
             <dialog id="dialogNeueEinkaufsListe">
-              <h2>Liste Hinzufügen</h2>
-              <form action="#" method="POST">
+              <div class="dialogheader">
+                <h2>Liste Hinzufügen</h2>
+              </div>
+              <div class="dialogcontent">
+                <form action="#" method="POST">
                 <label for="List ID">Bitte geben Sie die Listen ID ein</label>
                 <input type="text" id="neueListenID">
-              </form>
-              <button id="listeHinzufügen">Hinzufügen</button>
-              <button id="listeAbbruch">Abbrechen</button>
+                </form>
+                <button id="listeHinzufügen">
+                    <i class="fas fa-plus-circle"></i>
+                    <a>
+                      Hinzufügen
+                    </a>
+                </button>
+                <button id="listeAbbruch">
+                    <i class="fas fa-times-circle"></i>
+                    <a>
+                      Abbrechen
+                    </a>
+                </button>
+              </div>
+              
+
+              
             </dialog>
           </div>
         
