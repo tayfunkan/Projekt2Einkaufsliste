@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="stylesheet/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dfb63b206a.js" crossorigin="anonymous" ></script>
-   
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
   <body>
 
@@ -14,16 +16,32 @@
 
       <!-- Header -->
       <div class="header">
+        <div class="headertitle"> 
+          <i class="fas fa-shopping-cart"></i>
+          Purchary
+        </div>
+        <div class="headericonsright">
+            <i class="fas fa-info"></i>
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-snapchat-square"></i>
+            <i class="fas fa-ellipsis-h"></i>
+        </div>
 
       </div>
 
       <!-- Content -->
       <div class="content">
-       
+        <div class="contenttitel">
+            <button>
+              <i class="fas fa-angle-left" id="zurückTaste"></i>
+            </button>
+            <h1>
+              Überschrift
+            </h1>
+        </div>
         <div class="contentinhalt" id="inhaltDerSeite">
-          <h1>
-            Überschrift
-          </h1>
+          
           <input type="text" id="inputNeuesItem">
           
           <button style="cursor: pointer" id="fügeNeuesItemHinzu">
@@ -78,6 +96,7 @@
             <ul class="items" id="alleEinkaufsListen">
               <li>
                 <i class="far fa-circle"></i>
+                &nbsp;
                  Einkaufsliste
               </li>
 

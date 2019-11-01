@@ -11,7 +11,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 40px 1fr 35px;
+    grid-template-rows: 60px 1fr 35px;
     grid-template-areas:
         "header  header"
         "sidebar content"
@@ -33,10 +33,31 @@ li{
   list-style: none;
 }
 
+/* Header */
 .header {
   grid-area: header;
-  background-color: red;
+  background-color: rgb(58, 58, 60);
+  border-bottom: 1px solid black;
+
 }
+
+.header .headertitle{
+  float: left;
+  color:  rgb(248, 163, 145);
+  font-size: 200%;
+  margin: 5px 0px 5px 20px;
+  padding: 0 0 0 0;
+  font-family: 'Bowlby One SC', cursive;
+}
+
+.header .headericonsright {
+  float: right;
+  margin: 15px 20px 5px 0px;
+  padding: 0 0 0 0;
+  font-size: 150%;
+  
+}
+/* Content */
 .content {
   grid-area: content;
   background-color: rgb(28, 28, 30);
@@ -95,7 +116,15 @@ li{
 }
 
 .content h1{
-  margin: 12px 0 0px 0;
+  margin: 12px 0 0px 25px;
+  font-family: 'Anton', sans-serif;
+  display: inline-block;
+}
+
+.content .contenttitel #zurückTaste {
+  float: left;
+  font-size: 275%;
+  margin: 0 0 0 0;
 }
 
 .content .listeneinträge {
