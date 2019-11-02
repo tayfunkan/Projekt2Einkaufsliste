@@ -77,6 +77,9 @@ function aktiveListe()
     console.log(id);
     return id;
 }
+var idObjekt = document.getElementsByClassName("inhaltÜberschrift").getAttribute("id");
+//var id = "5db8add3393ca000175725fd";
+console.log(id);
 
 ////////////////////Liste mit Items neu laden lassen////////////////////////////////////////////
 
@@ -140,17 +143,36 @@ function newListItem (listenEintrag)
           document.getElementById("listeintrag").appendChild(listenEintrag);
       }
 
+//////////////////////// Item löschen //////////////////////////////
 
+function deleteItem (id)
+{
+    var itemId = id;
+    var listId = aktiveListe();
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/" + itemId;
 
+    fetch(apiUrl, {Method: "DELETE"})
 
+    updateListe(listId);
+}
 
-// function myFunction() {
-//     var x = document.getElementById("myText").value;
-//     document.getElementById("demo").innerHTML = x;
-//   }
+//////////////////////// Item als gekauft markieren ////////////////////////
 
-// function myFunction() {
-//     var node = document.createElement("li");
-//     li.textContent = "Wasser";
-//     document.getElementById("listeintrag").appendChild(node);
-//   }
+function setItem(id)
+{
+    var itemId = id;
+    var listId = aktiveListe();
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/" + itemId;
+
+    fetch(apiUrl, 
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ bought: true })
+    }).then(res => res.json())
+    .then(json => console.log(json));
+
+    updateListe(listId);
+}
