@@ -17,6 +17,7 @@ function listeHinzugefügt()
 {
     var listID = document.getElementById("neueListenID").value;
     listeAnheften(listID);
+    document.getElementById("neueListenID").value = "";
     dialogNeueEinkaufsListe.close();
 }
 function listeAbgebrochen ()
@@ -66,20 +67,15 @@ function neuesItemHinzufügen ()
         body: JSON.stringify({ name: item })
     }).then(res => res.json())
     .then(json => console.log(json));
-    document.getElementById("inputNeuesItem").clearContent;
+    document.getElementById("inputNeuesItem").value = "";
     updateListe(listId);
 }
 
 function aktiveListe()
 {
-    var idObjekt = document.getElementsByClassName("inhaltÜberschrift");
-    var id = "5db8add3393ca000175725fd";
-    console.log(id);
-    return id;
+    var idObjekt = document.getElementsByTagName("H1")[0].getAttribute("id");
+    return idObjekt;
 }
-var idObjekt = document.getElementsByClassName("inhaltÜberschrift").getAttribute("id");
-//var id = "5db8add3393ca000175725fd";
-console.log(id);
 
 ////////////////////Liste mit Items neu laden lassen////////////////////////////////////////////
 
@@ -100,6 +96,7 @@ function listeNeuHinterlegen()
 
 function updateListe(id)
 {
+    console.log("Liste wird neu gebaut");
     var listId = id;
     var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId;
 
@@ -117,7 +114,7 @@ function showList (liste)
     heading.id = liste._id;
     heading.className = "inhaltÜberschrift";
 
-    document.getElementById("inhaltDerSeite").appendChild(heading);
+    document.getElementById("contenttitel").appendChild(heading);
 
     var ul = document.createElement("ul");
 
@@ -125,23 +122,18 @@ function showList (liste)
         var listItem = document.createElement("li");
         listItem.textContent = item.name;
         listItem.className = "listeneinträge";
+        listItem.id = item._id;
 
         ul.appendChild(listItem);
     });
 
-    document.getElementById("inhaltDerSeite").appendChild(ul);
+    document.getElementById("dieListe").appendChild(ul);
 }
 function clearContent()
 {
-    document.getElementById("inhaltDerSeite").innerHTML="";
+    document.getElementById("contenttitel").innerHTML="";
+    document.getElementById("dieListe").innerHTML="";
 }
-function newListItem (listenEintrag)
-      {
-          var listenEintrag = document.createElement("li");
-          listenEintrag.textContent = listenEintrag;
-          listenEintrag.className = "listeneinträge";
-          document.getElementById("listeintrag").appendChild(listenEintrag);
-      }
 
 //////////////////////// Item löschen //////////////////////////////
 
@@ -176,3 +168,7 @@ function setItem(id)
 
     updateListe(listId);
 }
+
+function Sleep(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+ }
