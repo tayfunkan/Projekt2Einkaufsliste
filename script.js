@@ -8,22 +8,45 @@ listeHinzufügen.addEventListener('click', listeHinzugefügt);
 listeAbbruch.addEventListener('click', listeAbgebrochen)
 
 ///////////////Seitenfunktionen////////////////////////////////////////////////
+listeAktualisieren();
 
 function dialogNeueListe()
 {
     dialogNeueEinkaufsListe.showModal();
 }
+
 function listeHinzugefügt()
 {
-    var listID = document.getElementById("neueListenID").value;
-    listeAnheften(listID);
+    var listId = document.getElementById("neueListenID").value;
+    listeAnheften(listId);
+    getListName(listId);
     document.getElementById("neueListenID").value = "";
     dialogNeueEinkaufsListe.close();
 }
+
+function getListName (id)
+{
+    var listId = id;
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId;
+
+    fetch(apiUrl, {Method: "GET"})
+        .then(response => response.json())
+        .then(listName)
+        .catch(err => console.error(err));
+}
+
+function listName (liste)
+{    
+    localStorage.setItem(liste._id, liste.name);
+    
+    listeAktualisieren();
+}
+
 function listeAbgebrochen ()
 {
     dialogNeueEinkaufsListe.close();
 }
+
 function listeAnheften(listID)
 {
     try
@@ -40,18 +63,34 @@ function listeAnheften(listID)
         console.log("Liste konnte nicht gefunden werden.");
     }
 }
-function listeAnzeigen(liste)
+function listeAktualisieren()
 {
-    var nameListe = document.createElement("li");
-    nameListe.textContent = liste.name;
-    nameListe.id = liste._id;
-    nameListe.className = "listItems";
-    document.getElementById("alleEinkaufsListen").appendChild(nameListe);
+    document.getElementById("alleEinkaufsListen").innerHTML = "";
+
+    for (let i=0, iC=localStorage.length; i<iC; ++i) { 
+        let storageKey = localStorage.key(i);
+        
+        var listEintrag = document.createElement("h3");
+        listEintrag.id = storageKey;
+        listEintrag.textContent = localStorage.getItem(storageKey);
+        listEintrag.className = "listItems";
+        var imageListEintrag = document.createElement("i");
+        imageListEintrag.className = "far fa-circle";
+        imageListEintrag.name = "listDelete";
+        listEintrag.appendChild(imageListEintrag);
+        var listRahmen = document.createElement("li");
+
+        listRahmen.appendChild(listEintrag);
+        listRahmen.appendChild(imageListEintrag);
+
+        document.getElementById("alleEinkaufsListen").appendChild(listRahmen);
+    }
 
     listeNeuHinterlegen();
 }
 
 ////////////////////////////Neues Item hinzufügen ///////////////////////////////
+
 var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener('click', neuesItemHinzufügen);
 
 function neuesItemHinzufügen ()
@@ -81,7 +120,6 @@ function aktiveListe()
 
 ////////////////////Liste mit Items neu laden lassen////////////////////////////////////////////
 
-
 function listeNeuHinterlegen()
 {
     var alleListen = document.getElementsByClassName("listItems");
@@ -93,8 +131,24 @@ function listeNeuHinterlegen()
                 updateListe(event.target.getAttribute("id"))
             }
         )})
+
+    var alleListDelete = document.getElementsByName("listDelete");
+
+    Array.from(alleListDelete).forEach(listDelete => 
+        {
+            var listDeleteId = listDeleteId;
+            listDelete.addEventListener("click", event => 
+            {
+                listeEntfernen(listDeleteId);
+            }
+        )})
 }
-        
+
+function listeEntfernen(id)
+{
+    localStorage.removeItem(id);
+    listeAktualisieren();
+}
 
 function updateListe(id)
 {
@@ -106,9 +160,9 @@ function updateListe(id)
         .then(showList)
         .catch(err => console.error(err));
 }
+
 function showList (liste)
 {
-    console.log("Liste wird neu geladen");
     clearContent();
     
     var heading = document.createElement("h1");
@@ -149,9 +203,7 @@ function showList (liste)
         buttonTrash.name = "löschButton";
         var imageTrash = document.createElement("i");
         imageTrash.className = "fas fa-trash";
-        buttonTrash.appendChild(imageTrash);
-
-        console.log(item.bought);
+        buttonTrash.appendChild(imageTrash)
         
         listItem.appendChild(buttonTrash);
         

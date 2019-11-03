@@ -156,6 +156,10 @@ li{
   
 }
 
+.listItems {
+  cursor: pointer;
+}
+
 .sidebarnewlist {
   margin-bottom: 10px;
 }
