@@ -70,12 +70,12 @@ function listeAktualisieren()
     for (let i=0, iC=localStorage.length; i<iC; ++i) { 
         let storageKey = localStorage.key(i);
         
-        var listEintrag = document.createElement("h3");
+        var listEintrag = document.createElement("a");
         listEintrag.id = storageKey;
         listEintrag.textContent = localStorage.getItem(storageKey);
         listEintrag.className = "listItems";
         var imageListEintrag = document.createElement("i");
-        imageListEintrag.className = "far fa-circle";
+        imageListEintrag.className = "fas fa-times-circle";
         imageListEintrag.name = "listDelete";
         listEintrag.appendChild(imageListEintrag);
         var listRahmen = document.createElement("li");
