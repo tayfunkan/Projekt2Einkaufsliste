@@ -132,6 +132,7 @@ li{
   background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145)); 
   border-radius: 30px;
   padding: 10px 10px 10px 10px;
+  margin:20px 55px 20px 55px;
 }
 
 #myText {
@@ -141,7 +142,7 @@ li{
 }
 
 .content .contentinhalt{
-  margin: 0 55px 55px 55px;
+  margin: 0 55px 40px 55px;
 }
 
 .plus-button {
@@ -175,6 +176,9 @@ li{
   border: none;
   background: transparent;
   cursor: pointer;
+  float: right;
+  color: white;
+  font-size: 100%;
 }
 
 .farbigerButton {
@@ -206,7 +210,8 @@ li{
 
 .content .contentinhalt #inputNeuesItem {
   margin-top: 20px;
-  background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145)); 
+  /* background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145));  */
+  background-color: rgb(248, 163, 145); 
   border-radius: 30px;
   border: none;
   width: 500px;

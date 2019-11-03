@@ -132,7 +132,7 @@ function showList (liste)
         buttonBought.className = "actionButtons";
         buttonBought.name = "boughtButton";
         var imageBought = document.createElement("i");
-        imageBought.className = "fas fa-check";
+        imageBought.className = "fas fa-check-circle";
         buttonBought.appendChild(imageBought);
 
         var buttonUnBought = document.createElement("button");
@@ -153,6 +153,8 @@ function showList (liste)
 
         console.log(item.bought);
         
+        listItem.appendChild(buttonTrash);
+        
         if (item.bought)
         {
             listItem.appendChild(buttonBought);
@@ -162,7 +164,7 @@ function showList (liste)
             listItem.appendChild(buttonUnBought);
         }
         
-        listItem.appendChild(buttonTrash);
+        
         
 
         ul.appendChild(listItem);
