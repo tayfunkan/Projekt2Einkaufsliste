@@ -170,7 +170,14 @@ li{
 .plus-button--small {
 	font-size: 9px;
 }
-button {
+
+.actionButtons {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.farbigerButton {
   border: none;
   background: transparent;
   color: #D95A41;

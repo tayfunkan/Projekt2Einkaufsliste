@@ -32,7 +32,8 @@ function listeAnheften(listID)
 
         fetch(apiUrl, {Method: "GET"})
         .then(response => response.json())
-        .then(listeAnzeigen)
+        .then(showList)
+        .catch(err => console.error(err));
     }
     catch
     {
@@ -65,10 +66,11 @@ function neuesItemHinzufügen ()
                 "Content-Type": "application/json"
         },
         body: JSON.stringify({ name: item })
-    }).then(res => res.json())
-    .then(json => console.log(json));
+    })
+        .then(response => response.json())
+        .then(showList)
+        .catch(err => console.error(err));
     document.getElementById("inputNeuesItem").value = "";
-    updateListe(listId);
 }
 
 function aktiveListe()
@@ -96,7 +98,6 @@ function listeNeuHinterlegen()
 
 function updateListe(id)
 {
-    console.log("Liste wird neu gebaut");
     var listId = id;
     var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId;
 
@@ -107,6 +108,7 @@ function updateListe(id)
 }
 function showList (liste)
 {
+    console.log("Liste wird neu geladen");
     clearContent();
     
     var heading = document.createElement("h1");
@@ -124,10 +126,86 @@ function showList (liste)
         listItem.className = "listeneinträge";
         listItem.id = item._id;
 
+        /////////// Button der li hinzufügen /////////////////////
+        var buttonBought = document.createElement("button");
+        buttonBought.id = item._id;
+        buttonBought.className = "actionButtons";
+        buttonBought.name = "boughtButton";
+        var imageBought = document.createElement("i");
+        imageBought.className = "fas fa-check";
+        buttonBought.appendChild(imageBought);
+
+        var buttonUnBought = document.createElement("button");
+        buttonUnBought.id = item._id;
+        buttonUnBought.className = "actionButtons";
+        buttonUnBought.name = "unBoughtButton";
+        var imageUnBought = document.createElement("i");
+        imageUnBought.className = "fas fa-circle";
+        buttonUnBought.appendChild(imageUnBought);
+
+        var buttonTrash = document.createElement("button");
+        buttonTrash.id = item._id;
+        buttonTrash.className = "actionButtons";
+        buttonTrash.name = "löschButton";
+        var imageTrash = document.createElement("i");
+        imageTrash.className = "fas fa-trash";
+        buttonTrash.appendChild(imageTrash);
+
+        console.log(item.bought);
+        
+        if (item.bought)
+        {
+            listItem.appendChild(buttonBought);
+        }
+        else
+        {
+            listItem.appendChild(buttonUnBought);
+        }
+        
+        listItem.appendChild(buttonTrash);
+        
+
         ul.appendChild(listItem);
     });
 
     document.getElementById("dieListe").appendChild(ul);
+    
+    //// Lösch Button hinterlegen
+    var alleLöschButtons = document.getElementsByName("löschButton");
+
+    Array.from(alleLöschButtons).forEach(buttons =>
+        {
+            var itemId = buttons.id;
+            buttons.addEventListener("click", event=>
+            {
+                deleteItem(itemId);
+            })
+        })
+
+    //// Unbought Button hinterlegen
+    var alleUnBoughtButtons = document.getElementsByName("unBoughtButton");
+
+    Array.from(alleUnBoughtButtons).forEach(buttons =>
+        {
+            var itemId = buttons.id;
+            buttons.addEventListener("click", event=>
+            {
+                itemBought(itemId);
+            })
+        })   
+
+    //// Bought Buttons hinterlegen
+    var alleBoughtButtons = document.getElementsByName("boughtButton");
+
+    Array.from(alleBoughtButtons).forEach(buttons =>
+        {
+            var itemId = buttons.id;
+            buttons.addEventListener("click", event=>
+            {
+                itemUnBought(itemId);
+            })
+        })
+
 }
 function clearContent()
 {
@@ -143,14 +221,19 @@ function deleteItem (id)
     var listId = aktiveListe();
     var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/" + itemId;
 
-    fetch(apiUrl, {Method: "DELETE"})
-
-    updateListe(listId);
+    fetch(apiUrl, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+    }})
+        .then(response => response.json())
+        .then(showList)
+        .catch(err => console.error(err));
 }
 
 //////////////////////// Item als gekauft markieren ////////////////////////
 
-function setItem(id)
+function itemBought (id)
 {
     var itemId = id;
     var listId = aktiveListe();
@@ -162,13 +245,29 @@ function setItem(id)
             headers: {
                 "Content-Type": "application/json"
         },
-        body: JSON.stringify({ bought: true })
-    }).then(res => res.json())
-    .then(json => console.log(json));
+        body: JSON.stringify({ bought: "true" })
+    })
+        .then(response => response.json())
+        .then(showList)
+        .catch(err => console.error(err));
 
-    updateListe(listId);
 }
 
-function Sleep(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
+ function itemUnBought (id)
+ {
+    var itemId = id;
+    var listId = aktiveListe();
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/" + itemId;
+
+    fetch(apiUrl, 
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ bought: "false" })
+    })
+        .then(response => response.json())
+        .then(showList)
+        .catch(err => console.error(err));
  }
