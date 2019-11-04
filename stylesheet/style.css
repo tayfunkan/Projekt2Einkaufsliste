@@ -15,7 +15,7 @@ body {
     grid-template-areas:
         "header  header"
         "sidebar content"
-        "footer1 footer2"
+        "footer1 footer1"
 }
 
 .sidebar {
@@ -38,6 +38,11 @@ li{
   grid-area: header;
   background-color: rgb(58, 58, 60);
   border-bottom: 1px solid black;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+
 
 }
 
@@ -66,10 +71,18 @@ li{
 
 .footer1 {
   grid-area: footer1;
-  background-color: rgb(44, 44, 46);
-  border-right: 1px solid black;
-  color: white;
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer1 .sidebarnewlist {
+  background: rgb(44, 44, 46);
   text-align: center;
+  width: 190px;
+  margin-bottom: 10px;
 }
 
 
@@ -125,6 +138,7 @@ li{
   margin: 12px 0 0px 25px;
   font-family: 'Anton', sans-serif;
   display: inline-block;
+  
 }
 
 .content .contenttitel #zurückTaste {
@@ -166,9 +180,7 @@ li{
   cursor: pointer;
 }
 
-.sidebarnewlist {
-  margin-bottom: 10px;
-}
+
 
 .contentnewitem {
   margin-bottom: 10px;
