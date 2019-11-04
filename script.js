@@ -77,6 +77,7 @@ function listeAktualisieren()
         var imageListEintrag = document.createElement("i");
         imageListEintrag.className = "fas fa-times-circle";
         imageListEintrag.name = "listDelete";
+        imageListEintrag.id = storageKey;
         listEintrag.appendChild(imageListEintrag);
         var listRahmen = document.createElement("li");
 
@@ -132,14 +133,15 @@ function listeNeuHinterlegen()
             }
         )})
 
-    var alleListDelete = document.getElementsByName("listDelete");
+    var alleListDelete = document.getElementsByClassName("fas fa-times-circle");
 
     Array.from(alleListDelete).forEach(listDelete => 
         {
-            var listDeleteId = listDeleteId;
+            
             listDelete.addEventListener("click", event => 
             {
-                listeEntfernen(listDeleteId);
+
+                listeEntfernen(event.target.getAttribute("id"));
             }
         )})
 }
