@@ -306,8 +306,7 @@ li{
   .content .contentinhalt {margin: 10px 15px 10px 15px;}
   .content .listeneinträge {padding: 20px 0px 15px 6px;}
   .content .listeneinträge {margin: 10px 15px 10px 15px;}
-  .content .listeneinträge .actionButtons {margin-right: -15px;}
-  .content .listeneinträge .actionButtons {margin-left: -15px;}
+  .content .listeneinträge .fas {padding: 0 3px 0 0;}
   .sidebar { width: 100%;}
   
   /* .sidebar { width: 50%;} */
