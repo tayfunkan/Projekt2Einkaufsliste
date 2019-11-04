@@ -15,52 +15,7 @@ body {
     grid-template-areas:
         "header  header"
         "sidebar content"
-        "footer1 footer1"
-}
-
-.sidebar {
-  grid-area: sidebar;
-  background-color:rgb(44, 44, 46);
-  color: white;
-  border-right: 1px solid black;
-  height: 100%;
-  overflow-x: hidden;
-  transition: 0.5s;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 60px;
-  left: 0;
-}
-
-.sidebar a:hover {
-  color: #fd1e1e;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-.sideBarListe {
-  margin: 10px 0 10px 0;
+        "footer footer"
 }
 
 ul {
@@ -80,8 +35,7 @@ li{
   position: fixed;
   left: 0;
   right: 0;
-
-
+  overflow-x: hidden;
 }
 
 .header .headertitle{
@@ -98,8 +52,14 @@ li{
   margin: 15px 20px 5px 0px;
   padding: 0 0 0 0;
   font-size: 150%;
-  
 }
+
+
+.header .headericonsright a{
+  text-decoration: none;
+  color: black;
+}
+
 /* Content */
 .content {
   grid-area: content;
@@ -107,89 +67,14 @@ li{
   color: white;
   transition: margin-left .5s;
   margin-left: 0;
-}
-
-.ungeordneteListe{
-  margin-bottom: 60px;
-}
-
-.footer1 {
-  grid-area: footer1;
-  background-color: rgb(28, 28, 30);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.header .headericonsright a{
-  text-decoration: none;
-  color: black;
-}
-
-.footer1 .sidebarnewlist {
-  background: rgb(44, 44, 46);
-  text-align: center;
-  width: 249px;
-  border-right: 1px solid black;
- 
-  height: 30px;
-}
-
-
-
-
-.footer2 {
-  grid-area: footer2;
-  background-color: rgb(28, 28, 30);
-  color: white;
-  text-align: center;
-
-}
-
-.search {
-  background-color: grey;
-  border-radius: 20px;
-  padding: 5px 5px 5px 5px;
-  color: white;
-}
-
-.search a{
-  margin: 0 0 0 10px;
-  padding: 5px 5px 5px 5px;
-}
-
-#sidebarinhalt {
-  margin: 15px 10px 10px 10px;
-}
-
-.sidebar .listen {
-  font-size: 80%;
-  padding: 0 5px 20px 5px;
-}
-
-.sidebar .listen .items {
-  padding: 0px 0 0px 5px;
-  background-image: linear-gradient(transparent,transparent),url(/w/skins/Vector/images/user-avatar.svg?b7f58);
-  background-repeat: no-repeat;
-
-}
-
-.listItems{
-  margin-right: 5px;
-}
-.sidebar h2 {
-  font-size: 80%;
-  color: rgba(160, 143, 143, 0.877);
-  margin: 10px 0 10px 0px;
-  
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .content h1{
   margin: 12px 0 0px 25px;
   font-family: 'Anton', sans-serif;
   display: inline-block;
-  
 }
 
 .content .contenttitel #zurückTaste {
@@ -206,44 +91,152 @@ li{
   margin:20px 55px 20px 55px;
 }
 
-#myText {
-  background: transparent;
-  border: none;
-  font-size: 100%;
+.ungeordneteListe{
+  margin-bottom: 60px;
 }
 
 .content .contentinhalt{
   margin: 0 55px 40px 55px;
 }
 
-.plus-button {
-  border: 1px solid transparent;
-  background-color: #FFDC7C;
-	font-size: 16px;
-	height: 2.5em;
-	width: 2.5em;
-	border-radius: 999px;
-  position: relative;
-  
-}
 
 .listItems {
   cursor: pointer;
 }
 
-
-
 .contentnewitem {
   margin-bottom: 10px;
 }
 
-.footer1 a{
+.content .contentinhalt #inputNeuesItem {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(248, 163, 145); 
+  border-radius: 30px;
+  border: none;
+  
+  padding: 10px 10px 10px 10px;
+  color: white;
+  font-size: 100%;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background-color: rgb(28, 28, 30);
+}
+
+
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color:rgb(44, 44, 46);
+  color: white;
+  border-right: 1px solid black;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 0;
+}
+
+.sidebar a:hover {
+  color: rgb(248, 163, 145);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-right: -20px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.sideBarListe {
+  margin: 10px 0 10px 0;
+}
+
+
+
+.sidebar .sidebarfooter .sidebarnewlist {
+  background: rgb(44, 44, 46);
+  text-align: center;
+}
+
+
+
+#sidebarinhalt {
+  margin: 15px 10px 10px 10px;
+}
+
+.sidebar .listen {
+  font-size: 80%;
+  padding: 0 5px 20px 5px;
+}
+
+.sidebar .listen .items {
+  padding: 0px 0 0px 5px;
+  background-image: linear-gradient(transparent,transparent),url(/w/skins/Vector/images/user-avatar.svg?b7f58);
+  background-repeat: no-repeat;
+}
+
+.listItems{
+  margin-right: 5px;
+}
+
+.sidebar h2 {
+  font-size: 80%;
+  color: rgba(160, 143, 143, 0.877);
+  margin: 10px 0 10px 0px; 
+}
+
+.sidebarfooter a{
   margin-bottom:2px;
 }
 
-.plus-button--small {
-	font-size: 9px;
+/* Sidebar Dialogfeld */
+.sidebar .sidebarfooter #dialogNeueEinkaufsListe {
+  background: rgb(44, 44, 46);
+  border: 0.5px solid black;
+  color: white;
 }
+
+.sidebar .sidebarfooter #dialogNeueEinkaufsListe .dialogheader h2{
+  color: white;
+  font-size: 100%;
+}
+
+.sidebar .sidebarfooter #dialogNeueEinkaufsListe .dialogcontent button {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.sidebar .sidebarfooter #dialogNeueEinkaufsListe .dialogcontent #neueListenID {
+  margin-top: 20px;
+  background-color: rgb(248, 163, 145); 
+  border-radius: 30px;
+  border: none;
+  width: 250px;
+  padding: 10px 10px 10px 10px;
+}
+
 
 .actionButtons {
   border: none;
@@ -264,54 +257,6 @@ li{
   cursor: pointer;
 } 
 
-.sidebareinklappen{
-  display: none;
-}
-
-.footereinklappen{
-  display:none;
-}
-
-.contentausfahren{
-  width: 100%;
-  
-}
-
-
-  /* display:none; 
-  
-  
-  */
-
-/* .content .contentinhalt .listeneinträge .deleteButton {
-  background: transparent;
-  border: 2px solid red;
-  border-radius: 2em;
-  color: red;
-  display: inline-block;
-  font-size: 12px;
-  height: 20px;
-  line-height: 2px;
-  margin: 0 0 8px;
-  padding: 0;
-  text-align: center;
-  width: 20px;
-  float: right;
-  font-weight: bold;
-} */
-
-.content .contentinhalt #inputNeuesItem {
-  margin-top: 20px;
-  /* background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145));  */
-  background-color: rgb(248, 163, 145); 
-  border-radius: 30px;
-  border: none;
-  width: 500px;
-  padding: 10px 10px 10px 10px;
-  color: white;
- 
-  font-size: 100%;
-}
 
 /* FONTAWESOME BUTTON */
 .listeneinträge .fas {
@@ -323,49 +268,10 @@ li{
   cursor: pointer;
 }
 
-.footer1 {
-  
-  color: #D95A41;
-}
 
-.footer2 {
-  
-  color: rgb(248, 163, 145);
-}
 
-/* Dialogfeld */
-.footer1 #dialogNeueEinkaufsListe {
-  background: rgb(44, 44, 46);
-  border: 0.5px solid white;
-  color: white;
 
-  
-}
 
-.footer1 #dialogNeueEinkaufsListe .dialogheader {
-  
-  
-
-}
-
-.footer1 #dialogNeueEinkaufsListe .dialogheader h2{
-  
-
-}
-
-.footer1 #dialogNeueEinkaufsListe .dialogcontent button {
-  margin-top: 25px;
-  margin-bottom: 20px;
-}
-
-.footer1 #dialogNeueEinkaufsListe .dialogcontent #neueListenID {
-  margin-top: 20px;
-  background-image: linear-gradient( to right, #D95A41, rgb(248, 163, 145)); 
-  border-radius: 30px;
-  border: none;
-  width: 250px;
-  padding: 10px 10px 10px 10px;
-}
 
 
 
@@ -388,5 +294,19 @@ li{
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar {font-size: 120%;}
+  .content {font-size: 80%;}
+  .header .headericonsright {display: none;}
+  .content .contentinhalt {margin: 10px 15px 10px 15px;}
+  .content .listeneinträge {padding: 20px 0px 15px 6px;}
+  .content .listeneinträge {margin: 10px 15px 10px 15px;}
+  .content .listeneinträge .actionButtons {margin-right: -15px;}
+  .content .listeneinträge .actionButtons {margin-left: -15px;}
+  .sidebar { width: 100%;}
+  
+  /* .sidebar { width: 50%;} */
 }
 

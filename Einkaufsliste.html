@@ -21,7 +21,7 @@
           Purchary
         </div>
         <div class="headericonsright">
-            <a href="https://www.facebook.com/people/Manuel-Klinger/100009421684826">
+            <a href="https://www.facebook.com/people/Manuel-Klinger/100009421684826" >
               <i class="fas fa-info"></i>
             </a>
             <a href="https://www.facebook.com/people/Manuel-Klinger/100009421684826">
@@ -45,8 +45,9 @@
       <div class="content" id="myContent">
         <div class="contenttitel col-6" id="contenttitel">
             <Button class="farbigerButton openbtn" onclick="openNav()">
-              <i class="fas fa-angle-left" id="zurückTaste"></i>
+              <i class="fas fa-angle-right" id="zurückTaste"></i>
             </button>
+            
         </div>
 
         <div class="contentinhalt" id="inhaltDerSeite">
@@ -65,7 +66,7 @@
             <ul id="listeintrag">  
               <li  class="listeneinträge">
                 Bitte fügen Sie eine Liste hinzu oder wählen Sie eine aus, um deren Inhalt zu sehen
-                <!-- <input type="text" id="myText" value="New Item..."> -->
+                
                 <i class="fas fa-trash"></i>
                 <i class="fas fa-check-circle"></i>
               </li>
@@ -81,9 +82,8 @@
       <!-- Sidebar -->
       <div class="sidebar" id="sideBar">
         <div  id="sidebarinhalt">
-          
           <button class="farbigerButton closebtn" onclick="closeNav()">
-              <i class="fas fa-angle-right"></i>
+              <i class="fas fa-times" id="sidebarschließen"></i>          
           </Button>
           <h2>
             Listen:
@@ -98,48 +98,46 @@
             </ul>
           </div>
         </div>
+        <div class=sidebarfooter>
+            <div class="sidebarnewlist">
+                <button class="farbigerButton">
+                  <i class="fas fa-plus-circle"></i>
+                  <a id="neueEinkaufsListe">
+                    New List
+                  </a>
+                </button>
+                <dialog id="dialogNeueEinkaufsListe">
+                  <div class="dialogheader">
+                    <h2>Liste Hinzufügen</h2>
+                  </div>
+                  <div class="dialogcontent">
+                    <form action="#" method="POST">
+                    <label for="List ID">Bitte geben Sie die Listen ID ein</label>
+                    <input type="text" id="neueListenID">
+                    </form>
+                    <button class="farbigerButton" id="listeHinzufügen">
+                        <i class="fas fa-plus-circle"></i>
+                        <a>
+                          Hinzufügen
+                        </a>
+                    </button>
+                    <button class="farbigerButton" id="listeAbbruch">
+                        <i class="fas fa-times-circle"></i>
+                        <a>
+                          Abbrechen
+                        </a>
+                    </button>
+                  </div>
+                </dialog>
+              </div>
+        </div>
       </div>
 
       <!-- Footer -->
-      <div class="footer1" id="foooter">
-          <div class="sidebarnewlist">
-            <button class="farbigerButton">
-              <i class="fas fa-plus-circle"></i>
-              <a id="neueEinkaufsListe">
-                New List
-              </a>
-            </button>
-            
-            <dialog id="dialogNeueEinkaufsListe">
-              <div class="dialogheader">
-                <h2>Liste Hinzufügen</h2>
-              </div>
-              <div class="dialogcontent">
-                <form action="#" method="POST">
-                <label for="List ID">Bitte geben Sie die Listen ID ein</label>
-                <input type="text" id="neueListenID">
-                </form>
-                <button class="farbigerButton" id="listeHinzufügen">
-                    <i class="fas fa-plus-circle"></i>
-                    <a>
-                      Hinzufügen
-                    </a>
-                </button>
-                <button class="farbigerButton" id="listeAbbruch">
-                    <i class="fas fa-times-circle"></i>
-                    <a>
-                      Abbrechen
-                    </a>
-                </button>
-              </div>
-            </dialog>
-          </div>
-        
-
+      <div class="footer">
+      
       </div>
-      <div class="footer2">
-          
-        </div>
+      
     </div>
 
     <script src="script.js"></script>
