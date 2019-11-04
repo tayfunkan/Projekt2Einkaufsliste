@@ -126,7 +126,15 @@ function neuesItemHinzufügen ()
 // }
 
 function openNav() {
-    document.getElementById("sideBar").style.width = "250px";
+    if (screen.availWidth > 600)
+    {
+        document.getElementById("sideBar").style.width = "250px";
+    }
+    else
+    {
+        document.getElementById("sideBar").style.width = "100%";
+    }
+    
     document.getElementById("myContent").style.marginLeft = "250px";
 }
 

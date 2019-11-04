@@ -297,7 +297,10 @@ li{
 }
 
 @media only screen and (max-width: 600px) {
-  .sidebar {font-size: 120%;}
+  .sidebar {
+    font-size: 120%;
+    width : 100%;  
+  }
   .content {font-size: 80%;}
   .header .headericonsright {display: none;}
   .content .contentinhalt {margin: 10px 15px 10px 15px;}
