@@ -114,6 +114,17 @@ function neuesItemHinzufügen ()
     document.getElementById("inputNeuesItem").value = "";
 }
 
+
+function sideBarEinfahren()
+{
+    var sidebar = document.getElementById("sideBar");
+    sidebar.className = "sidebareinklappen";
+    var footer = document.getElementById("foooter");
+    footer.className = "footereinklappen";
+    var content = document.getElementById("coontent");
+    content.className = "contentausfahren";
+}
+
 function aktiveListe()
 {
     var idObjekt = document.getElementsByTagName("H1")[0].getAttribute("id");
