@@ -289,7 +289,8 @@ function showList (liste)
 }
 function clearContent()
 {
-    document.getElementById("contenttitel").innerHTML="";
+    var headingParent  = document.getElementById("contenttitel");
+    headingParent.removeChild(headingParent.lastChild);
     document.getElementById("dieListe").innerHTML="";
 }
 
