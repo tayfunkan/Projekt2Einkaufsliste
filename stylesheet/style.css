@@ -10,8 +10,8 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 60px 1fr 35px;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr 30px;
     grid-template-areas:
         "header  header"
         "sidebar content"
@@ -23,6 +23,10 @@ body {
   background-color:rgb(44, 44, 46);
   color: white;
   border-right: 1px solid black;
+}
+
+.sideBarListe {
+  margin: 10px 0 10px 0;
 }
 
 ul {
@@ -69,20 +73,31 @@ li{
   color: white;
 }
 
+.ungeordneteListe{
+  margin-bottom: 60px;
+}
+
 .footer1 {
   grid-area: footer1;
-  background-color: transparent;
+  background-color: rgb(28, 28, 30);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
+.header .headericonsright a{
+  text-decoration: none;
+  color: black;
+}
+
 .footer1 .sidebarnewlist {
   background: rgb(44, 44, 46);
   text-align: center;
-  width: 190px;
-  margin-bottom: 10px;
+  width: 249px;
+  border-right: 1px solid black;
+ 
+  height: 30px;
 }
 
 

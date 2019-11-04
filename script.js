@@ -80,7 +80,8 @@ function listeAktualisieren()
         imageListEintrag.id = storageKey;
         listEintrag.appendChild(imageListEintrag);
         var listRahmen = document.createElement("li");
-
+        listRahmen.className = "sideBarListe";
+        
         listRahmen.appendChild(listEintrag);
         listRahmen.appendChild(imageListEintrag);
 
@@ -175,6 +176,7 @@ function showList (liste)
     document.getElementById("contenttitel").appendChild(heading);
 
     var ul = document.createElement("ul");
+    ul.className = "ungeordneteListe";
 
     liste.items.forEach(item => {
         var listItem = document.createElement("li");
