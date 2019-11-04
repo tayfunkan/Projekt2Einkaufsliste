@@ -115,15 +115,26 @@ function neuesItemHinzufügen ()
 }
 
 
-function sideBarEinfahren()
-{
-    var sidebar = document.getElementById("sideBar");
-    sidebar.className = "sidebareinklappen";
-    var footer = document.getElementById("foooter");
-    footer.className = "footereinklappen";
-    var content = document.getElementById("coontent");
-    content.className = "contentausfahren";
+// function sideBarEinfahren()
+// {
+//     var sidebar = document.getElementById("sideBar");
+//     sidebar.className = "sidebareinklappen";
+//     var footer = document.getElementById("foooter");
+//     footer.className = "footereinklappen";
+//     var content = document.getElementById("coontent");
+//     content.className = "contentausfahren";
+// }
+
+function openNav() {
+    document.getElementById("sideBar").style.width = "250px";
+    document.getElementById("myContent").style.marginLeft = "250px";
 }
+
+function closeNav() {
+    document.getElementById("sideBar").style.width = "0";
+    document.getElementById("myContent").style.marginLeft= "0";
+}
+
 
 function aktiveListe()
 {

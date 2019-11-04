@@ -23,6 +23,40 @@ body {
   background-color:rgb(44, 44, 46);
   color: white;
   border-right: 1px solid black;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.sidebar a:hover {
+  color: #fd1e1e;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+
+.openbtn:hover {
+  background-color: #444;
 }
 
 .sideBarListe {
@@ -71,6 +105,8 @@ li{
   grid-area: content;
   background-color: rgb(28, 28, 30);
   color: white;
+  transition: margin-left .5s;
+  margin-left: 0;
 }
 
 .ungeordneteListe{

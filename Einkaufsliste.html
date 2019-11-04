@@ -42,9 +42,9 @@
       </div>
 
       <!-- Content -->
-      <div class="content" id="coontent">
+      <div class="content" id="myContent">
         <div class="contenttitel col-6" id="contenttitel">
-            <button class="farbigerButton" onclick="sideBarEinfahren()">
+            <Button class="farbigerButton openbtn" onclick="openNav()">
               <i class="fas fa-angle-left" id="zurückTaste"></i>
             </button>
             <h1>
@@ -84,6 +84,10 @@
       <!-- Sidebar -->
       <div class="sidebar" id="sideBar">
         <div  id="sidebarinhalt">
+          
+          <button class="farbigerButton closebtn" onclick="closeNav()">
+              <i class="fas fa-angle-right"></i>
+          </Button>
           <h2>
             Listen:
           </h2>
