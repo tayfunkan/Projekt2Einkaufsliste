@@ -1,7 +1,7 @@
-# Projekt2Einkaufsliste
+# Purchary
 Projekt 2 Einkaufsliste
 
-<h1>Purchary
+
 
 
 Dieses Projekt ist im Rahmen einer Portfolioprüfung an der DHBW Stuttgart entstanden.
