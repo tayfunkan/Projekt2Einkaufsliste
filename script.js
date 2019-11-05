@@ -18,6 +18,7 @@ function dialogNeueListe()
 function listeHinzugefügt()
 {
     var listId = document.getElementById("neueListenID").value;
+
     listeAnheften(listId);
     getListName(listId);
     document.getElementById("neueListenID").value = "";
@@ -49,19 +50,14 @@ function listeAbgebrochen ()
 
 function listeAnheften(listID)
 {
-    try
-    {
-        var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listID;
+    
+    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listID;
 
-        fetch(apiUrl, {Method: "GET"})
-        .then(response => response.json())
-        .then(showList)
-        .catch(err => console.error(err));
-    }
-    catch
-    {
-        console.log("Liste konnte nicht gefunden werden.");
-    }
+    fetch(apiUrl, {Method: "GET"})
+    .then(response => response.json())
+    .then(showList)
+    .catch(err => console.error(err));
+    
 }
 function listeAktualisieren()
 {
@@ -93,37 +89,49 @@ function listeAktualisieren()
 
 ////////////////////////////Neues Item hinzufügen ///////////////////////////////
 
-var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener('click', neuesItemHinzufügen);
+// Funktion mit enter ausführen
+var enterNeuesItem = document.getElementById("inputNeuesItem");
+enterNeuesItem.addEventListener("keyup", function (event)
+{
+    if (event.keyCode === 13)
+    {
+        neuesItemHinzufügen();
+    }
+});
+
+
+var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener("click", neuesItemHinzufügen());
 
 function neuesItemHinzufügen ()
 {
-    var listId = aktiveListe(); 
-    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items"; 
     var item = document.getElementById("inputNeuesItem").value;
-    fetch(apiUrl, 
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name: item })
-    })
-        .then(response => response.json())
-        .then(showList)
-        .catch(err => console.error(err));
-    document.getElementById("inputNeuesItem").value = "";
+
+    if (item !== ""){
+        var listId = aktiveListe(); 
+        var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items"; 
+        
+        fetch(apiUrl, 
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name: item })
+        })
+            .then(response => response.json())
+            .then(showList)
+            .catch(err => console.error(err));
+        document.getElementById("inputNeuesItem").value = "";
+    }
+    else{
+        console.log("Um die Post-Methode auszuführen, muss das Input-Feld befüllt sein");
+        alert("Bitte tragen Sie ein Wert in das Input-Feld ein");
+    }
+
+    
 }
 
 
-// function sideBarEinfahren()
-// {
-//     var sidebar = document.getElementById("sideBar");
-//     sidebar.className = "sidebareinklappen";
-//     var footer = document.getElementById("foooter");
-//     footer.className = "footereinklappen";
-//     var content = document.getElementById("coontent");
-//     content.className = "contentausfahren";
-// }
 
 function openNav() {
     if (screen.availWidth > 600)
@@ -146,8 +154,16 @@ function closeNav() {
 
 function aktiveListe()
 {
-    var idObjekt = document.getElementsByTagName("H1")[0].getAttribute("id");
-    return idObjekt;
+    try{
+        var idObjekt = document.getElementsByTagName("H1")[0].getAttribute("id");
+        return idObjekt;
+    }
+    catch(e){
+        console.log(e);
+        console.log("Um die Post-Methode auszuführen, muss eine Liste hinterlegt");
+        alert("Bitte wählen Sie zuerst eine Liste aus")
+    }
+    
 }
 
 ////////////////////Liste mit Items neu laden lassen////////////////////////////////////////////
