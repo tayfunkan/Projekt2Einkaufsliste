@@ -176,7 +176,8 @@ function listeNeuHinterlegen()
         {
             listen.addEventListener("click", event => 
             {
-                updateListe(event.target.getAttribute("id"))
+                updateListe(event.target.getAttribute("id"));
+                closeNav();
             }
         )})
 
