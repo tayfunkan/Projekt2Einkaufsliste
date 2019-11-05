@@ -10,6 +10,9 @@ listeAbbruch.addEventListener('click', listeAbgebrochen)
 ///////////////Seitenfunktionen////////////////////////////////////////////////
 listeAktualisieren();
 
+///////////////// Funktionen um neue Liste hinzuzufügen
+
+
 function dialogNeueListe()
 {
     dialogNeueEinkaufsListe.showModal();
@@ -59,6 +62,9 @@ function listeAnheften(listID)
     .catch(err => console.error(err));
     
 }
+
+///////// Liste mit Listennamen mit click-Funktionen hinterlegen
+
 function listeAktualisieren()
 {
     document.getElementById("alleEinkaufsListen").innerHTML = "";
@@ -131,7 +137,7 @@ function neuesItemHinzufügen ()
     
 }
 
-
+////////////// Sidebar ein und ausfahren mit Abfrage nach Bildschirmbreite
 
 function openNav() {
     if (screen.availWidth > 600)
@@ -151,6 +157,8 @@ function closeNav() {
     document.getElementById("myContent").style.marginLeft= "0";
 }
 
+
+/////// Aktive Liste herausfinden, um Funktionen auszuführen
 
 function aktiveListe()
 {
@@ -194,6 +202,8 @@ function listeNeuHinterlegen()
         )})
 }
 
+//// Liste aus Storage löschen -> Liste in Sidebar neu laden
+
 function listeEntfernen(id)
 {
     localStorage.removeItem(id);
@@ -210,6 +220,8 @@ function updateListe(id)
         .then(showList)
         .catch(err => console.error(err));
 }
+
+/////////////////////HAUPTFUNKTION/////////////// Baut den ganzen Content ab und wieder auf
 
 function showList (liste)
 {
@@ -312,6 +324,9 @@ function showList (liste)
         })
 
 }
+
+///// Baum abbauen
+
 function clearContent()
 {
     var headingParent  = document.getElementById("contenttitel");
@@ -358,6 +373,8 @@ function itemBought (id)
         .catch(err => console.error(err));
 
 }
+
+///////////////////// Item als nicht gekauft markieren////////
 
  function itemUnBought (id)
  {
