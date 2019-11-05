@@ -100,7 +100,7 @@ enterNeuesItem.addEventListener("keyup", function (event)
 });
 
 
-var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener("click", neuesItemHinzufügen());
+var startNeuesItem = document.getElementById("fügeNeuesItemHinzu").addEventListener("click", neuesItemHinzufügen);
 
 function neuesItemHinzufügen ()
 {
